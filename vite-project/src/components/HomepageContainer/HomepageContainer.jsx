@@ -1,5 +1,12 @@
+import { useState } from "react";
 import RadioButton from '../RadioButton/RadioButton';
+
+
 export default function HomepageContainer() {
+  const [numberChosen, setNumberChosen] = useState(1)
+  const [categoryChosen, setCategoryChosen] = useState("generalKnowledge")
+
+
   // Container for quiz configuration, allowing users to customize their quiz
   return (
     <div id="homepage-container">
@@ -15,7 +22,9 @@ export default function HomepageContainer() {
             id="api-numberOfQuestions-input"
             min="1"
             max="20"
+            value={numberChosen}
             placeholder="Type here"
+            onChange={(e)=> setNumberChosen(e.target.value)}
             required
           />
         </section>
@@ -24,7 +33,7 @@ export default function HomepageContainer() {
         - If your project uses camelCase elsewhere, consider changing the value attributes to camelCase as well, like generalKnowledge, scienceAndNature, etc. */}
         <section>
           <label htmlFor="category-dropdown-input">Select Topic Category</label>
-          <select name="category" id="category-dropdown-input">
+          <select name="category" id="category-dropdown-input" value={categoryChosen} onChange={(e)=>setCategoryChosen(e.target.value)}>
             <option value="generalKnowledge">General Knowledge</option>
             <option value="scienceAndNature">Science and Nature</option>
             <option value="mythology">Mythology</option>
@@ -32,7 +41,10 @@ export default function HomepageContainer() {
       
         </section>
         <section> 
-        <RadioButton />
+        <RadioButton 
+        selectedValue={difficulty}
+        onChange ={(value) => setDifficulty(value)}
+        />
         </section>
         <section>
           <button type="submit">Start Quiz</button>
