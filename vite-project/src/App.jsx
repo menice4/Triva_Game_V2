@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import MainOuterContainer from './components/MainOuterContainer/MainOuterContainer';
 
 
+
 import './App.css'
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
     <div id="app">
       <Header />
       <MainOuterContainer />
+
+
       <Footer />
     </div>
   )

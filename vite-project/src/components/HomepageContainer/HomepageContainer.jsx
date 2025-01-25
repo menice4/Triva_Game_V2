@@ -1,4 +1,4 @@
-
+import RadioButton from '../RadioButton/RadioButton';
 export default function HomepageContainer() {
   // Container for quiz configuration, allowing users to customize their quiz
   return (
@@ -29,6 +29,13 @@ export default function HomepageContainer() {
             <option value="scienceAndNature">Science and Nature</option>
             <option value="mythology">Mythology</option>
           </select>
+      
+        </section>
+        <section> 
+        <RadioButton />
+        </section>
+        <section>
+          <button type="submit">Start Quiz</button>
         </section>
       </form>
     </div>
