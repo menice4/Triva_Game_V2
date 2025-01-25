@@ -1,4 +1,4 @@
-import "./MainOuterContainer.css"
+//import "./MainOuterContainer.css"
 import HomepageContainer from '../HomepageContainer/HomepageContainer';
 export default function MainOuterContainer() {
   return (
