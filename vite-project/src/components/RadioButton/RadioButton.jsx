@@ -4,7 +4,6 @@ export default function RadioButton({ selectedValue, onChange}) {
 
   const handleDifficultyChange = (e) => {
     const value = e.target.value
-    setDifficulty(value);
     if (onChange){
         onChange(value); // notifies the parent
     }

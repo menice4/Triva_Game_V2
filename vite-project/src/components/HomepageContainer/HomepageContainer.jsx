@@ -3,8 +3,8 @@ import RadioButton from '../RadioButton/RadioButton';
 
 
 export default function HomepageContainer() {
-  const [numberChosen, setNumberChosen] = useState(1)
-  const [categoryChosen, setCategoryChosen] = useState("generalKnowledge");
+  const [numberChosen, setNumberChosen] = useState(0)
+  const [categoryChosen, setCategoryChosen] = useState("9");
   const [difficulty, setDifficulty] = useState("easy");
 
 
@@ -18,7 +18,7 @@ export default function HomepageContainer() {
       e.preventDefault();
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log(data)
+      console.log(data.results)
   
     } catch (error) {
       console.log("Error fetching data", error)
@@ -52,8 +52,9 @@ export default function HomepageContainer() {
         - If your project uses camelCase elsewhere, consider changing the value attributes to camelCase as well, like generalKnowledge, scienceAndNature, etc. */}
         <section>
           <label htmlFor="category-dropdown-input">Select Topic Category</label>
-          <select name="category" id="category-dropdown-input" value={categoryChosen} onChange={(e)=>setCategoryChosen(e.target.value)}>
-            <option value="9" >General Knowledge</option>
+          <select name="category" id="category-dropdown-input" value={categoryChosen} onChange={(e)=>setCategoryChosen(e.target.value)}>   
+           <option disabled selected value> -- select an option -- </option>
+            <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
             <option value="11">Entertainment: Film</option>
           </select>
