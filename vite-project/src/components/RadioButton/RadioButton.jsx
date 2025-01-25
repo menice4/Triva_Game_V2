@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./RadioButton.css";
-export default function RadioButton({ selectedValue, onChange }) {
-  const [difficulty, setDifficulty] = useState("easy");
+export default function RadioButton({ selectedValue, onChange}) {
 
   const handleDifficultyChange = (e) => {
     const value = e.target.value
@@ -9,12 +8,7 @@ export default function RadioButton({ selectedValue, onChange }) {
     if (onChange){
         onChange(value); // notifies the parent
     }
-
-
 }
-
-
-
 
   
   return (
@@ -24,15 +18,15 @@ export default function RadioButton({ selectedValue, onChange }) {
         Question Difficulty :
         <hr />
         <label>
-          <input type="radio" name="radio-button" value="easy" checked = {difficulty === "easy"}  onChange={handleDifficultyChange}/>
+          <input type="radio" name="radio-button" value="easy" checked = {selectedValue === "easy"}  onChange={handleDifficultyChange}/>
           Easy
         </label>
         <label>
-          <input type="radio" name="radio-button" value="medium" checked = {difficulty === "medium"}  onChange={handleDifficultyChange}/>
+          <input type="radio" name="radio-button" value="medium" checked = {selectedValue === "medium"}  onChange={handleDifficultyChange}/>
           Medium
         </label>
         <label>
-          <input type="radio" name="radio-button" value="hard" checked = {difficulty === "hard"}  onChange={handleDifficultyChange}/>
+          <input type="radio" name="radio-button" value="hard" checked = {selectedValue === "hard"}  onChange={handleDifficultyChange}/>
           Hard
         </label>
       </p>

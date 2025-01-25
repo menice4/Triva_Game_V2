@@ -4,14 +4,33 @@ import RadioButton from '../RadioButton/RadioButton';
 
 export default function HomepageContainer() {
   const [numberChosen, setNumberChosen] = useState(1)
-  const [categoryChosen, setCategoryChosen] = useState("generalKnowledge")
+  const [categoryChosen, setCategoryChosen] = useState("generalKnowledge");
+  const [difficulty, setDifficulty] = useState("easy");
 
+
+
+
+  //construct API
+  const apiUrl = `https://opentdb.com/api.php?amount=${numberChosen}&category=${categoryChosen}&difficulty=${difficulty}&type=boolean`;
+
+  async function handleSubmit(e) {
+    try {
+      e.preventDefault();
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      console.log(data)
+  
+    } catch (error) {
+      console.log("Error fetching data", error)
+    }
+  }
+  
 
   // Container for quiz configuration, allowing users to customize their quiz
   return (
     <div id="homepage-container">
       {/* TODO: Add form submission handler */}
-      <form action="">
+      <form onSubmit={handleSubmit}>
         {/* Limit quiz to 1-20 questions to manage user engagement */}
         <section>
           <label htmlFor="api-numberOfQuestions-input">
@@ -34,9 +53,9 @@ export default function HomepageContainer() {
         <section>
           <label htmlFor="category-dropdown-input">Select Topic Category</label>
           <select name="category" id="category-dropdown-input" value={categoryChosen} onChange={(e)=>setCategoryChosen(e.target.value)}>
-            <option value="generalKnowledge">General Knowledge</option>
-            <option value="scienceAndNature">Science and Nature</option>
-            <option value="mythology">Mythology</option>
+            <option value="9" >General Knowledge</option>
+            <option value="10">Entertainment: Books</option>
+            <option value="11">Entertainment: Film</option>
           </select>
       
         </section>
